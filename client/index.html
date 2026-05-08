@@ -178,6 +178,43 @@ nav a:hover,nav a.active{color:var(--accent)}
 .cmd-item:last-child{border-bottom:none}
 .cmd-word{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--accent);background:var(--bg3);border:1px solid var(--border);padding:.3rem .75rem;text-align:center;align-self:start}
 .cmd-desc{font-size:13px;color:var(--muted);line-height:1.5;font-weight:300}
+
+/* COMMENTS SECTION */
+.comments-section{margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
+.comments-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);letter-spacing:1px;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+.comments-count{font-size:0.9rem;color:var(--muted);font-family:'DM Sans',sans-serif;letter-spacing:0}
+.comment-form{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem}
+.comment-form-group{margin-bottom:1rem}
+.comment-form-group label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.comment-form-group input,.comment-form-group textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.75rem 1rem;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.comment-form-group input:focus,.comment-form-group textarea:focus{border-color:var(--accent)}
+.comment-form-group textarea{height:100px;resize:vertical}
+.comment-form-row{display:grid;grid-template-columns:1fr;gap:1rem}
+.comment-submit{background:var(--accent);color:#111;border:none;cursor:pointer;padding:.75rem 1.5rem;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .2s;align-self:flex-end}
+.comment-submit:hover{background:var(--accent2)}
+.comment-submit:disabled{background:var(--muted);cursor:not-allowed;opacity:.5}
+.comments-list{display:flex;flex-direction:column;gap:1rem}
+.comment-item{background:var(--bg2);border:1px solid var(--border);padding:1.25rem;border-left:3px solid var(--accent)}
+.comment-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
+.comment-author{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;letter-spacing:.5px}
+.comment-date{font-size:11px;color:var(--muted);letter-spacing:1px}
+.comment-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;margin-bottom:.75rem}
+.comment-actions{display:flex;gap:1rem;font-size:11px}
+.comment-action{color:var(--accent);cursor:pointer;transition:color .2s;display:flex;align-items:center;gap:.3rem}
+.comment-action:hover{color:var(--accent2)}
+.comment-reply{background:var(--bg3);border:1px solid var(--border);padding:1rem;margin-top:1rem;margin-left:1rem;border-left:2px solid var(--red)}
+.comment-reply-form{display:flex;flex-direction:column;gap:.75rem}
+.comment-reply-form input,.comment-reply-form textarea{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.5rem .75rem;font-size:12px;font-family:'DM Sans',sans-serif;outline:none}
+.comment-reply-form input:focus,.comment-reply-form textarea:focus{border-color:var(--accent)}
+.comment-reply-form textarea{height:70px;resize:vertical}
+.comment-reply-actions{display:flex;gap:.5rem}
+.comment-reply-btn{background:var(--accent);color:#111;border:none;cursor:pointer;padding:.4rem 1rem;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .2s}
+.comment-reply-btn:hover{background:var(--accent2)}
+.comment-cancel-btn{background:transparent;color:var(--muted);border:1px solid var(--border);cursor:pointer;padding:.4rem 1rem;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-family:'DM Sans',sans-serif;transition:all .2s}
+.comment-cancel-btn:hover{color:var(--accent);border-color:var(--accent)}
+.no-comments{text-align:center;padding:2rem;color:var(--muted);font-size:13px}
+.no-comments i{font-size:2rem;color:var(--border);margin-bottom:1rem;display:block}
+
 @media(max-width:768px){
   .safety-grid,.epi-grid{grid-template-columns:1fr}
   .cmd-item{grid-template-columns:1fr;gap:.4rem}
@@ -341,6 +378,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
               <li>Snap caps para treino a seco e proteção da percussão</li>
             </ul>
             <button class="close-btn" onclick="toggleArticle('a0',event)"><i class="fas fa-times"></i> Fechar</button>
+            <!-- COMMENTS SECTION -->
+            <div class="comments-section">
+              <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a0">0</span></div>
+              <div class="comment-form">
+                <div class="comment-form-group">
+                  <label>Seu nome</label>
+                  <input type="text" id="comment-author-a0" placeholder="Como você se chama?" maxlength="50">
+                </div>
+                <div class="comment-form-row">
+                  <div class="comment-form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="comment-email-a0" placeholder="seu@email.com" maxlength="100">
+                  </div>
+                </div>
+                <div class="comment-form-group">
+                  <label>Seu comentário</label>
+                  <textarea id="comment-text-a0" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+                </div>
+                <button class="comment-submit" id="comment-submit-a0" onclick="submitComment('a0')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+              </div>
+              <div class="comments-list" id="comments-list-a0"></div>
+            </div>
           </div>
 
           <!-- ARTIGO 6 — LNTD (Destaque na Home também) -->
@@ -410,7 +469,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
             <li><strong>3-Gun / Multigun:</strong> Pistola, rifle e espingarda em um único stage.</li>
           </ul>
           <div class="highlight">"No Brasil, o IPSC e o IDPA cresceram significativamente — hoje há clubes federados em praticamente todos os estados."</div>
-          <button class="close-btn" onclick="toggleArticle('a1',event)"><i class="fas fa-times"></i> Fechar</button>
+            <button class="close-btn" onclick="toggleArticle('a1',event)"><i class="fas fa-times"></i> Fechar</button>
+            <!-- COMMENTS SECTION -->
+            <div class="comments-section">
+              <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a1">0</span></div>
+              <div class="comment-form">
+                <div class="comment-form-group">
+                  <label>Seu nome</label>
+                  <input type="text" id="comment-author-a1" placeholder="Como você se chama?" maxlength="50">
+                </div>
+                <div class="comment-form-row">
+                  <div class="comment-form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="comment-email-a1" placeholder="seu@email.com" maxlength="100">
+                  </div>
+                </div>
+                <div class="comment-form-group">
+                  <label>Seu comentário</label>
+                  <textarea id="comment-text-a1" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+                </div>
+                <button class="comment-submit" id="comment-submit-a1" onclick="submitComment('a1')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+              </div>
+              <div class="comments-list" id="comments-list-a1"></div>
+            </div>
         </div>
 
         <!-- AD INLINE -->
@@ -445,6 +526,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           <h3>Acionamento do gatilho</h3>
           <p>Almofada da primeira falange do indicador, pressão linear para trás — sem movimento lateral. Antecipação do recuo (flinch) só é corrigida com treino a seco consistente.</p>
           <button class="close-btn" onclick="toggleArticle('a2',event)"><i class="fas fa-times"></i> Fechar</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a2">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a2" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a2" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a2" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a2" onclick="submitComment('a2')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a2"></div>
+          </div>
         </div>
 
         <!-- ARTIGO 3 -->
@@ -483,6 +586,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           <h3>Ferramentas recomendadas</h3>
           <p>Laser trainers (SIRT, LaserLyte), snap caps de polímero, aplicativos de shot timer, câmeras em câmera lenta para análise do acionamento e alvos de papel são recursos acessíveis que tornam o dry fire mensurável.</p>
           <button class="close-btn" onclick="toggleArticle('a3',event)"><i class="fas fa-times"></i> Fechar</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a3">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a3" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a3" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a3" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a3" onclick="submitComment('a3')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a3"></div>
+          </div>
         </div>
 
         <!-- ARTIGO 4 -->
@@ -514,6 +639,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           <h3>Controle da pressão competitiva</h3>
           <p>Respiração 4-7-8 (inspire 4s, segure 7s, expire 8s) antes do estágio baixa a frequência cardíaca e restaura o estado ótimo de desempenho.</p>
           <button class="close-btn" onclick="toggleArticle('a4',event)"><i class="fas fa-times"></i> Fechar</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a4">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a4" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a4" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a4" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a4" onclick="submitComment('a4')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a4"></div>
+          </div>
         </div>
 
         <!-- ARTIGO 5 -->
@@ -550,6 +697,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           </ul>
           <div class="highlight">"Excesso de óleo atrai sujeira e causa falhas. Lubrificação deve ser leve e precisa — apenas nos pontos de fricção."</div>
           <button class="close-btn" onclick="toggleArticle('a5',event)"><i class="fas fa-times"></i> Fechar</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a5">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a5" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a5" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a5" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a5" onclick="submitComment('a5')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a5"></div>
+          </div>
         </div>
 
         <!-- AD INLINE LNTD -->
@@ -701,6 +870,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           </div>
 
           <button class="close-btn" onclick="toggleArticle('a6',event)"><i class="fas fa-times"></i> Fechar artigo</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a6">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a6" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a6" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a6" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a6" onclick="submitComment('a6')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a6"></div>
+          </div>
         </div>
 
         <!-- AD INLINE SEGURANÇA -->
@@ -821,6 +1012,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
           <div class="highlight">"Segurança não é negociável. Um acidente em estande pode destruir vidas. Respeite as regras, respeite seus colegas, respeite a arma."</div>
 
           <button class="close-btn" onclick="toggleArticle('a7',event)"><i class="fas fa-times"></i> Fechar</button>
+          <!-- COMMENTS SECTION -->
+          <div class="comments-section">
+            <div class="comments-title"><i class="fas fa-comments"></i> Comentários <span class="comments-count" id="comments-count-a7">0</span></div>
+            <div class="comment-form">
+              <div class="comment-form-group">
+                <label>Seu nome</label>
+                <input type="text" id="comment-author-a7" placeholder="Como você se chama?" maxlength="50">
+              </div>
+              <div class="comment-form-row">
+                <div class="comment-form-group">
+                  <label>E-mail</label>
+                  <input type="email" id="comment-email-a7" placeholder="seu@email.com" maxlength="100">
+                </div>
+              </div>
+              <div class="comment-form-group">
+                <label>Seu comentário</label>
+                <textarea id="comment-text-a7" placeholder="Compartilhe sua experiência ou dúvida..." maxlength="500"></textarea>
+              </div>
+              <button class="comment-submit" id="comment-submit-a7" onclick="submitComment('a7')"><i class="fas fa-paper-plane"></i> Enviar Comentário</button>
+            </div>
+            <div class="comments-list" id="comments-list-a7"></div>
+          </div>
         </div>
 
       </main>
@@ -1072,6 +1285,11 @@ function showPage(id) {
 	      document.getElementById('tab-treino').appendChild(content);
 	    }
 	  });
+	  
+	  // Inicializar comentarios para todos os artigos
+	  ['a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7'].forEach(id => {
+	    renderComments(id);
+	  });
 	});
 
 // HAMBURGER
@@ -1106,6 +1324,126 @@ document.getElementById('nlBtn').addEventListener('click', function(){
     setTimeout(function(){ input.style.borderColor=''; input.placeholder='seu@email.com'; }, 2500);
   }
 });
+
+// COMMENTS SYSTEM
+class CommentsManager {
+  constructor() {
+    this.storageKey = 'tiro_blog_comments';
+    this.loadComments();
+  }
+  loadComments() {
+    const stored = localStorage.getItem(this.storageKey);
+    this.comments = stored ? JSON.parse(stored) : {};
+  }
+  saveComments() {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.comments));
+  }
+  addComment(articleId, author, email, text) {
+    if (!this.comments[articleId]) {
+      this.comments[articleId] = [];
+    }
+    const comment = {
+      id: Date.now(),
+      author: author,
+      email: email,
+      text: text,
+      date: new Date().toLocaleDateString('pt-BR'),
+      time: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'}),
+      replies: []
+    };
+    this.comments[articleId].push(comment);
+    this.saveComments();
+    return comment;
+  }
+  getComments(articleId) {
+    return this.comments[articleId] || [];
+  }
+  addReply(articleId, commentId, author, email, text) {
+    if (!this.comments[articleId]) return null;
+    const comment = this.comments[articleId].find(c => c.id === commentId);
+    if (comment) {
+      const reply = {
+        id: Date.now(),
+        author: author,
+        email: email,
+        text: text,
+        date: new Date().toLocaleDateString('pt-BR'),
+        time: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})
+      };
+      comment.replies.push(reply);
+      this.saveComments();
+      return reply;
+    }
+    return null;
+  }
+}
+const commentsManager = new CommentsManager();
+function renderComments(articleId) {
+  const container = document.getElementById('comments-list-' + articleId);
+  if (!container) return;
+  const comments = commentsManager.getComments(articleId);
+  const countEl = document.getElementById('comments-count-' + articleId);
+  if (countEl) countEl.textContent = comments.length;
+  if (comments.length === 0) {
+    container.innerHTML = '<div class="no-comments"><i class="fas fa-comments"></i>Nenhum comentario ainda. Seja o primeiro a compartilhar!</div>';
+    return;
+  }
+  container.innerHTML = comments.map(comment => {
+    const repliesHtml = comment.replies && comment.replies.length > 0 ? '<div style="margin-top:1rem;margin-left:1rem;border-left:2px solid var(--accent);padding-left:1rem">' + comment.replies.map(reply => '<div style="background:var(--bg3);border:1px solid var(--border);padding:0.75rem;margin-bottom:0.5rem;border-left:2px solid var(--red)"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem"><div style="font-family:Bebas Neue,sans-serif;font-size:0.95rem;color:var(--accent);letter-spacing:0.5px">' + escapeHtml(reply.author) + '</div><div style="font-size:10px;color:var(--muted);letter-spacing:1px">' + reply.date + ' as ' + reply.time + '</div></div><div style="font-size:12px;color:var(--muted);line-height:1.5">' + escapeHtml(reply.text) + '</div></div>').join('') + '</div>' : '';
+    return '<div class="comment-item"><div class="comment-header"><div class="comment-author">' + escapeHtml(comment.author) + '</div><div class="comment-date">' + comment.date + ' as ' + comment.time + '</div></div><div class="comment-text">' + escapeHtml(comment.text) + '</div><div class="comment-actions"><span class="comment-action" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')"><i class="fas fa-reply"></i> Responder</span></div><div id="reply-form-' + articleId + '-' + comment.id + '" style="display:none;margin-top:1rem"><div class="comment-reply"><div class="comment-reply-form"><input type="text" placeholder="Seu nome" id="reply-author-' + articleId + '-' + comment.id + '" maxlength="50"><input type="email" placeholder="seu@email.com" id="reply-email-' + articleId + '-' + comment.id + '" maxlength="100"><textarea placeholder="Sua resposta..." id="reply-text-' + articleId + '-' + comment.id + '" maxlength="500"></textarea><div class="comment-reply-actions"><button class="comment-reply-btn" onclick="submitReply(' + "'" + articleId + "'" + ', ' + comment.id + ')">Enviar</button><button class="comment-cancel-btn" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')">Cancelar</button></div></div></div></div>' + repliesHtml + '</div>';
+  }).join('');
+}
+function toggleReplyForm(articleId, commentId) {
+  const form = document.getElementById('reply-form-' + articleId + '-' + commentId);
+  if (form) {
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  }
+}
+function submitReply(articleId, commentId) {
+  const author = document.getElementById('reply-author-' + articleId + '-' + commentId).value.trim();
+  const email = document.getElementById('reply-email-' + articleId + '-' + commentId).value.trim();
+  const text = document.getElementById('reply-text-' + articleId + '-' + commentId).value.trim();
+  if (!author || !email || !text) {
+    alert('Por favor, preencha todos os campos.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Por favor, digite um e-mail valido.');
+    return;
+  }
+  commentsManager.addReply(articleId, commentId, author, email, text);
+  renderComments(articleId);
+  toggleReplyForm(articleId, commentId);
+}
+function submitComment(articleId) {
+  const author = document.getElementById('comment-author-' + articleId).value.trim();
+  const email = document.getElementById('comment-email-' + articleId).value.trim();
+  const text = document.getElementById('comment-text-' + articleId).value.trim();
+  const btn = document.getElementById('comment-submit-' + articleId);
+  if (!author || !email || !text) {
+    alert('Por favor, preencha todos os campos.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Por favor, digite um e-mail valido.');
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  setTimeout(() => {
+    commentsManager.addComment(articleId, author, email, text);
+    document.getElementById('comment-author-' + articleId).value = '';
+    document.getElementById('comment-email-' + articleId).value = '';
+    document.getElementById('comment-text-' + articleId).value = '';
+    btn.disabled = false;
+    btn.textContent = 'Enviar Comentario';
+    renderComments(articleId);
+  }, 500);
+}
+function escapeHtml(text) {
+  const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
 
 // CONTACT FORM
 function enviarContato() {
