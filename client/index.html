@@ -1,26 +1,1127 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tiro Esportivo Brasileiro — Blog sobre tiro esportivo: regras, modalidades, técnica de postura, treino a seco e muito mais para atiradores de todos os níveis.">
+<meta name="keywords" content="tiro esportivo, tiro esportivo brasileiro, LNTD, liga nacional tiro defensivo, tiro defensivo, dry fire, IPSC, IDPA, pistola, rifle, postura, empunhadura, tiro olímpico, blog tiro brasil">
+<meta name="author" content="Tiro Esportivo Brasileiro">
+<meta property="og:title" content="Tiro Esportivo Brasileiro — Blog Oficial">
+<meta property="og:description" content="Regras, modalidades, técnica e treino a seco para atiradores de todos os níveis no Brasil.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.tiroesportivobrasileiro.com.br">
+<title>Tiro Esportivo Brasileiro — Blog, Técnica e Modalidades</title>
+<meta name="google-site-verification" content="ciIWK39H0eh-EuqeK2o-LePZziE0ux7ArNc17L8WnLA" />
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Tiro Esportivo Brasileiro - Preview</title>    
-    <!-- THIS IS THE START OF A COMMENT BLOCK, BLOCK TO BE DELETED: Google Fonts here, example:
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    THIS IS THE END OF A COMMENT BLOCK, BLOCK TO BE DELETED -->
-  </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
-  </body>
+<!-- ===================== GOOGLE ADSENSE ===================== -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4219712052442304" crossorigin="anonymous"></script>
 
+<!-- Google Analytics (opcional) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0b;--bg2:#111113;--bg3:#1a1a1e;
+  --accent:#c9a84c;--accent2:#e8c876;--red:#b83232;
+  --green:#1a6b3c;--text:#e8e6e0;--muted:#7a7870;--border:#2a2a30;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px}
+
+/* NAV */
+header{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px}
+.logo-wrap{display:flex;flex-direction:column;line-height:1}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--accent)}
+.logo-main span{color:var(--red)}
+.logo-sub{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+nav ul{display:flex;list-style:none}
+nav a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0 .9rem;transition:color .2s;display:block;line-height:62px}
+nav a:hover,nav a.active{color:var(--accent)}
+.hamburger{display:none;background:none;border:1px solid var(--border);color:var(--muted);padding:.4rem .7rem;cursor:pointer;font-size:1rem}
+.nav-line{height:2px;background:linear-gradient(90deg,var(--red),var(--accent),transparent)}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* HERO */
+.hero{position:relative;background:var(--bg2);border-bottom:1px solid var(--border);padding:4.5rem 2rem 3.5rem;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(184,50,50,0.13),transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.hero-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--red)}
+.hero h1{font-size:clamp(2.6rem,5.5vw,4.2rem);line-height:.95;color:#fff;margin-bottom:1.2rem}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero-sub{font-size:15px;color:var(--muted);max-width:500px;font-weight:300;margin-bottom:2rem;line-height:1.7}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#111;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:.75rem 1.5rem;font-weight:500;transition:background .2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:var(--accent2)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:.75rem 1.5rem;font-weight:400;border:1px solid var(--border);transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-secondary:hover{color:var(--accent);border-color:var(--accent)}
+.crosshair{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:200px;height:200px;opacity:.055}
+.crosshair circle{stroke:#c9a84c;stroke-width:1;fill:none}
+.crosshair line{stroke:#c9a84c;stroke-width:.8}
+.br-flag{position:absolute;bottom:1.5rem;right:2rem;font-size:11px;letter-spacing:2px;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+.flag-dot{width:8px;height:8px;background:var(--green);border-radius:50%}
+
+/* AD BANNER */
+.ad-banner{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:.75rem 2rem}
+.ad-placeholder{width:100%;max-width:728px;height:90px;background:var(--bg3);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 auto}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.grid-main{display:grid;grid-template-columns:1fr 310px;gap:2.5rem;padding:2.5rem 0}
+
+/* SECTION LABEL */
+.section-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);border-left:2px solid var(--red);padding-left:.75rem;margin-bottom:1.5rem}
+
+/* CARDS */
+.article-card{background:var(--bg2);border:1px solid var(--border);margin-bottom:1px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.article-card:hover{border-color:var(--accent)}
+.card-inner{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1.25rem 1.5rem;align-items:start}
+.card-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
+.card-title{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:1px;color:#fff;margin-bottom:.5rem;line-height:1.1}
+.card-excerpt{font-size:13px;color:var(--muted);font-weight:300;line-height:1.6}
+.card-meta{font-size:11px;color:var(--muted);margin-top:.75rem;display:flex;gap:.8rem;align-items:center}
+.card-meta i{color:var(--accent);font-size:10px}
+.card-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--border);line-height:1;flex-shrink:0;align-self:center}
+.card-num.hl{color:var(--red);opacity:.4}
+.featured{background:var(--bg3);border:1px solid var(--accent);padding:2rem;margin-bottom:1px;cursor:pointer;transition:border-color .2s}
+.featured:hover{border-color:var(--accent2)}
+.featured .card-tag{color:var(--accent)}
+.featured .card-title{font-size:2rem}
+
+/* ARTICLE CONTENT */
+.article-content{display:none;padding:2rem 1.5rem;border-top:1px solid var(--border);background:var(--bg3)}
+.article-content.open{display:block}
+.article-content h3{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--accent);letter-spacing:1px;margin:.9rem 0 .4rem}
+.article-content h3:first-child{margin-top:0}
+.article-content p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:.75rem;font-weight:300}
+.article-content ul{list-style:none;margin-bottom:.75rem}
+.article-content ul li{font-size:13px;color:var(--muted);padding:.25rem 0 .25rem 1.1rem;position:relative;line-height:1.5}
+.article-content ul li::before{content:'—';position:absolute;left:0;color:var(--accent);font-size:11px;top:.35rem}
+.article-content ul li strong{color:var(--text);font-weight:500}
+.highlight{background:var(--bg2);border-left:2px solid var(--accent);padding:.75rem 1rem;margin:.75rem 0;font-size:13px;color:var(--text);font-style:italic}
+.close-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--border);padding:.4rem 1rem;cursor:pointer;margin-top:1rem;transition:color .2s,border-color .2s;font-family:'DM Sans',sans-serif}
+.close-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+/* AD INLINE */
+.ad-inline{background:var(--bg2);border:1px dashed var(--border);text-align:center;padding:1.2rem;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:1px;min-height:100px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem}
+.ad-inline small{font-size:9px;color:var(--border);letter-spacing:1px}
+
+/* SIDEBAR */
+.sidebar-block{background:var(--bg2);border:1px solid var(--border);padding:1.25rem;margin-bottom:1px}
+.sidebar-block .section-label{margin-bottom:1rem}
+.sidebar-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .2s}
+.sidebar-item:last-child{border-bottom:none}
+.sidebar-item:hover .si-title{color:var(--accent)}
+.si-dot{width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0}
+.si-title{font-size:13px;flex:1;line-height:1.3}
+.si-tag{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.modality-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:.5rem}
+.mod-card{background:var(--bg3);border:1px solid var(--border);padding:.75rem;text-align:center;cursor:pointer;transition:border-color .2s}
+.mod-card:hover{border-color:var(--accent)}
+.mod-icon{font-size:1.2rem;color:var(--accent);margin-bottom:.3rem}
+.mod-name{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
+.mod-desc{font-size:10px;color:var(--muted);margin-top:2px}
+.tip-item{display:flex;gap:.75rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.tip-item:last-child{border-bottom:none}
+.tip-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--red);line-height:1;flex-shrink:0;width:22px}
+.tip-text{font-size:12px;color:var(--muted);line-height:1.5;flex:1}
+.tip-text strong{color:var(--text);font-weight:500}
+/* CANAL CARDS */
+.canal-card{display:flex;align-items:center;gap:1rem;background:var(--bg3);border:1px solid var(--border);padding:1rem;margin:1rem 0;flex-wrap:wrap}
+.canal-card-gold{border-color:var(--accent);background:linear-gradient(135deg,var(--bg3),rgba(201,168,76,0.06))}
+.canal-yt-icon{font-size:2rem;color:#ff0000;flex-shrink:0}
+.canal-info{flex:1;min-width:150px}
+.canal-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1px;color:#fff}
+.canal-handle{font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:.3rem}
+.canal-desc{font-size:12px;color:var(--muted);font-weight:300;line-height:1.4}
+.canal-btn{display:inline-flex;align-items:center;gap:.4rem;background:#ff0000;color:#fff;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:.5rem 1rem;font-weight:500;white-space:nowrap;transition:opacity .2s;border:none;text-decoration:none;flex-shrink:0}
+.canal-btn:hover{opacity:.85}
+.canal-btn-gold{background:var(--accent);color:#111}
+/* SIDEBAR CANAL */
+.sidebar-canal{display:flex;align-items:center;gap:.6rem;padding:.7rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:opacity .2s}
+.sidebar-canal:last-child{border-bottom:none}
+.sidebar-canal:hover{opacity:.75}
+.sc-icon{font-size:1.3rem;color:#ff0000;flex-shrink:0}
+.sc-name{font-size:13px;color:var(--text);font-weight:500;line-height:1.2}
+.sc-handle{font-size:10px;color:var(--muted);letter-spacing:.5px}
+.sc-ext{font-size:9px;color:var(--muted);margin-left:auto;flex-shrink:0}
+/* SAFETY ARTICLE */
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:1rem 0}
+.safety-card{background:var(--bg2);border:1px solid var(--border);padding:1rem;position:relative;overflow:hidden}
+.safety-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
+.safety-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--border);line-height:1;position:absolute;top:.5rem;right:.75rem}
+.safety-icon{font-size:1.4rem;color:var(--accent);margin-bottom:.4rem}
+.safety-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:#fff;margin-bottom:.4rem;line-height:1.1;padding-right:2rem}
+.safety-desc{font-size:12px;color:var(--muted);line-height:1.5;font-weight:300}
+/* EPI */
+.epi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:1rem 0}
+.epi-item{background:var(--bg3);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;align-items:flex-start;gap:.3rem}
+.epi-icon{font-size:1.5rem;color:var(--accent)}
+.epi-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:#fff}
+.epi-desc{font-size:12px;color:var(--muted);line-height:1.5;font-weight:300}
+/* COMMANDS */
+.cmd-list{margin:1rem 0}
+.cmd-item{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);align-items:start}
+.cmd-item:last-child{border-bottom:none}
+.cmd-word{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--accent);background:var(--bg3);border:1px solid var(--border);padding:.3rem .75rem;text-align:center;align-self:start}
+.cmd-desc{font-size:13px;color:var(--muted);line-height:1.5;font-weight:300}
+@media(max-width:768px){
+  .safety-grid,.epi-grid{grid-template-columns:1fr}
+  .cmd-item{grid-template-columns:1fr;gap:.4rem}
+}
+.lntd-card{border-color:#c9a84c !important;background:linear-gradient(135deg,var(--bg2) 85%,rgba(201,168,76,0.06)) !important}
+.lntd-tag{color:var(--accent) !important}
+/* VIDEO EMBEDS */
+.video-block{margin:1.25rem 0}
+.video-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.ad-sidebar{background:var(--bg2);border:1px dashed var(--border);min-height:250px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem;text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:1px;padding:1rem}
+.ad-sidebar small{font-size:9px;color:var(--border)}
+
+/* NEWSLETTER */
+.newsletter{background:var(--bg3);border:1px solid var(--accent);padding:2.5rem 2rem;margin:2rem 0;text-align:center}
+.newsletter h2{font-size:2rem;color:#fff;margin-bottom:.5rem}
+.newsletter p{font-size:13px;color:var(--muted);margin-bottom:1.5rem}
+.nl-form{display:flex;gap:0;max-width:420px;margin:0 auto}
+.nl-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-right:none;color:var(--text);padding:.7rem 1rem;font-size:13px;font-family:'DM Sans',sans-serif;outline:none}
+.nl-form input:focus{border-color:var(--accent)}
+.nl-form button{background:var(--accent);color:#111;border:none;cursor:pointer;padding:.7rem 1.25rem;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .2s}
+.nl-form button:hover{background:var(--accent2)}
+
+/* STATIC PAGES */
+.static-page{max-width:780px;margin:0 auto;padding:3rem 2rem}
+.static-page h1{font-size:2.5rem;color:var(--accent);margin-bottom:.5rem}
+.static-page .page-date{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:2rem;text-transform:uppercase}
+.static-page h2{font-size:1.3rem;color:#fff;margin:1.5rem 0 .5rem}
+.static-page p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1rem;font-weight:300}
+.static-page ul{list-style:none;margin-bottom:1rem}
+.static-page ul li{font-size:14px;color:var(--muted);padding:.2rem 0 .2rem 1rem;position:relative;font-weight:300}
+.static-page ul li::before{content:'—';position:absolute;left:0;color:var(--accent);font-size:11px;top:.35rem}
+.contact-form{background:var(--bg2);border:1px solid var(--border);padding:2rem;margin-top:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.75rem 1rem;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{height:140px;resize:vertical}
+.form-success{display:none;background:var(--bg3);border:1px solid var(--green);padding:1rem;text-align:center;font-size:13px;color:#4caf7d;letter-spacing:1px;margin-top:1rem}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--accent);margin-bottom:.3rem}
+.footer-logo span{color:var(--red)}
+.footer-tagline{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.footer-desc{font-size:12px;color:var(--muted);font-weight:300;line-height:1.7}
+.footer-col h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{font-size:12px;color:var(--muted);padding:.25rem 0;cursor:pointer;transition:color .2s}
+.footer-col ul li:hover{color:var(--accent)}
+.footer-bottom{max-width:1100px;margin:1.5rem auto 0;border-top:1px solid var(--border);padding-top:1rem;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);letter-spacing:.5px;flex-wrap:wrap;gap:.5rem}
+.footer-nav{display:flex;gap:1.5rem}
+.footer-nav a{font-size:11px;color:var(--muted);transition:color .2s;cursor:pointer}
+.footer-nav a:hover{color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .grid-main{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  header{padding:0 1rem}
+  nav ul{display:none}
+  nav.open ul{display:flex;flex-direction:column;position:absolute;top:62px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);flex-direction:column}
+  nav.open a{display:block;padding:1rem;border-bottom:1px solid var(--border)}
+  .hamburger{display:block}
+  .hero h1{font-size:2rem}
+  .hero-sub{font-size:14px}
+  .hero-actions{flex-direction:column}
+  .btn-primary,.btn-secondary{width:100%}
+  .footer-inner{grid-template-columns:1fr;gap:1.5rem}
+  .nl-form{flex-direction:column}
+  .nl-form input{border-right:1px solid var(--border);border-bottom:none}
+  .static-page{padding:2rem 1rem}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap" onclick="showPage('home')" style="cursor:pointer">
+    <div class="logo-main">TIRO ESPORTIVO <span>BRASILEIRO</span></div>
+    <div class="logo-sub">tiroesportivobrasileiro.com.br</div>
+  </div>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="#" id="nav-home" class="active" onclick="showTab('home');return false">Início</a></li>
+      <li><a href="#" id="nav-artigos" onclick="showTab('artigos');return false">Artigos</a></li>
+      <li><a href="#" id="nav-modalidades" onclick="showTab('modalidades');return false">Modalidades</a></li>
+      <li><a href="#" id="nav-treino" onclick="showTab('treino');return false">Treino</a></li>
+      <li><a href="#" id="nav-contato" onclick="showPage('contato');return false">Contato</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</header>
+<div class="nav-line"></div>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="crosshair" viewBox="0 0 180 180" aria-hidden="true">
+      <circle cx="90" cy="90" r="80"/><circle cx="90" cy="90" r="55"/>
+      <circle cx="90" cy="90" r="30"/><circle cx="90" cy="90" r="6"/>
+      <line x1="0" y1="90" x2="180" y2="90"/><line x1="90" y1="0" x2="90" y2="180"/>
+    </svg>
+    <div class="hero-eyebrow">Blog Oficial — Tiro Esportivo Brasileiro</div>
+    <h1>PRECISÃO É<br>UMA <em>ARTE</em></h1>
+    <p class="hero-sub">Regras, modalidades, técnica de postura, treino a seco e muito mais — conteúdo sério para atiradores brasileiros de todos os níveis.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('artigos-container').scrollIntoView({behavior:'smooth'})"><i class="fas fa-chevron-right"></i> Ver artigos</button>
+      <button class="btn-secondary" onclick="showPage('contato')"><i class="fas fa-envelope"></i> Contato</button>
+    </div>
+    <div class="br-flag"><div class="flag-dot"></div> Brasil — Conteúdo 100% nacional</div>
+  </section>
+
+  <!-- AD TOPO 728x90 -->
+  <div class="ad-banner">
+    <div class="ad-placeholder">
+      <i class="fas fa-ad"></i> Espaço para publicidade
+    </div>
+  </div>
+
+  <div class="container" id="artigos-container">
+    <div class="grid-main">
+      <main>
+        <!-- ABA HOME -->
+        <div id="tab-home" class="tab-content active">
+          <div class="section-label">Destaques</div>
+          
+          <!-- FEATURED -->
+          <article class="featured article-card" onclick="toggleArticle('a0')">
+            <div class="card-tag">Guia Completo — Iniciante</div>
+            <h2 class="card-title">INTRODUÇÃO AO TIRO ESPORTIVO: O QUE VOCÊ PRECISA SABER</h2>
+            <p class="card-excerpt">Entenda como funciona o esporte, o que diz a legislação brasileira, como se filiar a um clube e dar os primeiros passos no mundo do tiro com segurança e dentro da lei.</p>
+            <div class="card-meta"><i class="fas fa-clock"></i> 8 min de leitura &nbsp;<i class="fas fa-tag"></i> Iniciante</div>
+          </article>
+          <div id="a0" class="article-content">
+            <h3>O que é o tiro esportivo?</h3>
+            <p>O tiro esportivo é um esporte olímpico regulamentado pelo Comitê Olímpico Internacional (COI) desde os Jogos de 1896. No Brasil, é coordenado pelo CBTE (Confederação Brasileira de Tiro Esportivo) e regulamentado pelo Exército Brasileiro por meio do SIGMA.</p>
+            <h3>Como começar legalmente no Brasil</h3>
+            <ul>
+              <li>Filie-se a um clube de tiro registrado no Exército Brasileiro</li>
+              <li>Obtenha o CR (Certificado de Registro) no sistema SIGMA</li>
+              <li>Realize os cursos obrigatórios de segurança exigidos pela legislação</li>
+              <li>A prática em clube dispensa porte, mas exige CR válido e atualizado</li>
+              <li>Mantenha participação mínima em treinos ou competições para não perder o registro</li>
+            </ul>
+            <div class="highlight">"A legislação exige filiação ativa a um clube e participação mínima em competições ou treinos para manutenção do CR de atirador esportivo."</div>
+            <h3>Requisitos para aquisição de arma</h3>
+            <p>Ter mais de 25 anos, idoneidade moral comprovada, capacidade técnica e aptidão psicológica atestada. Menores de 25 anos podem praticar em clubes com supervisão e autorização dos responsáveis, utilizando armas do clube.</p>
+            <h3>Equipamentos essenciais para começar</h3>
+            <ul>
+              <li>Protetor auricular (abafador ativo ou passivo — nunca treine sem)</li>
+              <li>Óculos de proteção balística homologados</li>
+              <li>Coldre adequado à arma e à modalidade praticada</li>
+              <li>Snap caps para treino a seco e proteção da percussão</li>
+            </ul>
+            <button class="close-btn" onclick="toggleArticle('a0',event)"><i class="fas fa-times"></i> Fechar</button>
+          </div>
+
+          <!-- ARTIGO 6 — LNTD (Destaque na Home também) -->
+          <article class="article-card lntd-card" onclick="toggleArticle('a6_home')">
+            <div class="card-inner">
+              <div>
+                <div class="card-tag lntd-tag">&#9733; Tiro Defensivo — LNTD</div>
+                <h2 class="card-title">LNTD: A LIGA NACIONAL DE TIRO DEFENSIVO DO BRASIL</h2>
+                <p class="card-excerpt">Conheça a maior liga de Tiro Defensivo do Brasil — história, regras oficiais 2025, modalidades e vídeos das provas.</p>
+                <div class="card-meta"><i class="fas fa-clock"></i> 10 min &nbsp;<i class="fas fa-tag"></i> Tiro Defensivo</div>
+              </div>
+              <div class="card-num" style="color:var(--accent);opacity:.5">06</div>
+            </div>
+          </article>
+          <div id="a6_home" class="article-content">
+            <p>Para ler o conteúdo completo sobre a LNTD, acesse a aba <strong>Modalidades</strong>.</p>
+            <button class="btn-primary" onclick="showTab('modalidades')">Ir para Modalidades</button>
+            <button class="close-btn" onclick="toggleArticle('a6_home',event)"><i class="fas fa-times"></i> Fechar</button>
+          </div>
+        </div>
+
+        <!-- ABA ARTIGOS -->
+        <div id="tab-artigos" class="tab-content">
+          <div class="section-label">Todos os Artigos</div>
+          <!-- Artigos Gerais -->
+        </div>
+
+        <!-- ABA MODALIDADES -->
+        <div id="tab-modalidades" class="tab-content">
+          <div class="section-label">Modalidades de Tiro</div>
+          <!-- Artigos de Modalidades -->
+        </div>
+
+        <!-- ABA TREINO -->
+        <div id="tab-treino" class="tab-content">
+          <div class="section-label">Dicas de Treino</div>
+          <!-- Artigos de Treino -->
+        </div>
+
+        <!-- ARTIGO 1 -->
+        <article class="article-card" onclick="toggleArticle('a1')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag">Regras &amp; Modalidades</div>
+              <h2 class="card-title">MODALIDADES DO TIRO ESPORTIVO: DO OLÍMPICO AO PRÁTICO</h2>
+              <p class="card-excerpt">Pistola, rifle, carabina, IPSC, IDPA, Steel Challenge — conheça as principais modalidades praticadas no Brasil e no mundo, suas regras e características.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 6 min &nbsp;<i class="fas fa-tag"></i> Regras</div>
+            </div>
+            <div class="card-num hl">01</div>
+          </div>
+        </article>
+        <div id="a1" class="article-content">
+          <h3>Modalidades Olímpicas</h3>
+          <ul>
+            <li><strong>Pistola 10m ar comprimido:</strong> 60 tiros, pistola de precisão a ar. Alta exigência de estabilidade e controle respiratório.</li>
+            <li><strong>Pistola 25m fogo central:</strong> Tiro rápido e de precisão, séries cronometradas e livres.</li>
+            <li><strong>Rifle 10m ar comprimido:</strong> Posição em pé, alvos de 0,5mm. Um dos mais exigentes tecnicamente.</li>
+            <li><strong>Rifle 50m fogo central:</strong> Três posições — deitado, ajoelhado e em pé (3×40 tiros).</li>
+            <li><strong>Skeet e Fossa Olímpica:</strong> Alvo voador (prato de argila) com espingarda calibre 12.</li>
+          </ul>
+          <h3>Modalidades Práticas</h3>
+          <ul>
+            <li><strong>IPSC / USPSA:</strong> Ênfase em velocidade, poder e precisão. Pistola, rifle, espingarda ou revólver.</li>
+            <li><strong>IDPA:</strong> Tiro defensivo em cenários táticos realistas.</li>
+            <li><strong>Steel Challenge:</strong> 5 alvos metálicos por stage, foco em velocidade máxima.</li>
+            <li><strong>Silhueta Metálica:</strong> Alvos de 50m a 200m, tradição no interior do Brasil.</li>
+            <li><strong>3-Gun / Multigun:</strong> Pistola, rifle e espingarda em um único stage.</li>
+          </ul>
+          <div class="highlight">"No Brasil, o IPSC e o IDPA cresceram significativamente — hoje há clubes federados em praticamente todos os estados."</div>
+          <button class="close-btn" onclick="toggleArticle('a1',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+        <!-- AD INLINE -->
+        <div class="ad-inline">
+          <i class="fas fa-ad"></i> Espaço para publicidade
+        </div>
+
+        <!-- ARTIGO 2 -->
+        <article class="article-card" onclick="toggleArticle('a2')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag">Técnica &amp; Postura</div>
+              <h2 class="card-title">EMPUNHADURA E ALINHAMENTO DE MIRA: OS FUNDAMENTOS DO TIRO PRECISO</h2>
+              <p class="card-excerpt">Sem uma empunhadura sólida, nenhum treino compensa. Aprenda a posição correta das mãos, dedos, pulsos e o alinhamento de mira que os melhores atiradores do mundo usam.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 7 min &nbsp;<i class="fas fa-tag"></i> Técnica</div>
+            </div>
+            <div class="card-num">02</div>
+          </div>
+        </article>
+        <div id="a2" class="article-content">
+          <h3>Empunhadura de Força (Grip)</h3>
+          <ul>
+            <li>Mão dominante: polegar apontando para o alvo, dedos envolvem a coronha com força constante</li>
+            <li>Dedos médio, anelar e mínimo abraçam com firmeza constante</li>
+            <li>Mão de apoio cobre completamente os dedos da mão dominante</li>
+            <li>Polegares apontam para o alvo, paralelos ao cano</li>
+            <li>Pressão lateral das mãos — dedo indicador aciona o gatilho de forma independente</li>
+          </ul>
+          <div class="highlight">"Empunhadura fraca é a causa nº1 de tiros baixos e à esquerda (destros). Antes de aumentar cadência, solidifique a base."</div>
+          <h3>Alinhamento de mira</h3>
+          <p>Foco no alvo de mira dianteiro (front sight). Mira traseira e alvo ficam levemente desfocados. Os três elementos alinhados horizontalmente, com luz igual nas laterais.</p>
+          <h3>Acionamento do gatilho</h3>
+          <p>Almofada da primeira falange do indicador, pressão linear para trás — sem movimento lateral. Antecipação do recuo (flinch) só é corrigida com treino a seco consistente.</p>
+          <button class="close-btn" onclick="toggleArticle('a2',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+        <!-- ARTIGO 3 -->
+        <article class="article-card" onclick="toggleArticle('a3')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag">Treino a Seco</div>
+              <h2 class="card-title">TREINO A SECO: EVOLUA EM CASA SEM GASTAR MUNIÇÃO</h2>
+              <p class="card-excerpt">O dry fire é a ferramenta mais poderosa de evolução no tiro esportivo. Protocolos completos, exercícios e cuidados de segurança que não podem ser ignorados.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 9 min &nbsp;<i class="fas fa-tag"></i> Treino</div>
+            </div>
+            <div class="card-num">03</div>
+          </div>
+        </article>
+        <div id="a3" class="article-content">
+          <h3>O que é treino a seco (dry fire)?</h3>
+          <p>Acionar o gatilho com a arma completamente descarregada para treinar mecânica de disparo, acionamento do gatilho, alinhamento de mira e saque — sem consumir munição. Os maiores atiradores do mundo treinam a seco diariamente.</p>
+          <h3>Protocolo de segurança — NUNCA ignore</h3>
+          <ul>
+            <li>Verifique visualmente e fisicamente a câmara (VAZIA) antes de iniciar</li>
+            <li>Remova TODA a munição do ambiente — guarde em outro cômodo</li>
+            <li>Aponte SEMPRE para parede sólida ou backstop de borracha</li>
+            <li>Avise todos no ambiente que o treino está em andamento</li>
+            <li>Jamais misture treino a seco com recarga, mesmo parcial</li>
+          </ul>
+          <div class="highlight">"Acidentes durante 'treino a seco' ocorrem quase sempre por uma razão: a câmara não foi verificada. Nunca pule esse passo."</div>
+          <h3>Exercícios essenciais</h3>
+          <ul>
+            <li><strong>Trigger press:</strong> Acione sem mover a mira — ela deve ser absolutamente imóvel</li>
+            <li><strong>Wall drill:</strong> A 15cm da parede, qualquer movimento toca fisicamente — feedback imediato</li>
+            <li><strong>Draw to first shot:</strong> Saque do coldre até o primeiro disparo. Cronometre e reduza o tempo</li>
+            <li><strong>Presentation drill:</strong> Do coldre ao alvo com empunhadura perfeita desde o primeiro contato</li>
+            <li><strong>Malfunction clearance:</strong> Simule e corrija falhas (tap-rack) para construir memória muscular</li>
+            <li><strong>Reload drill:</strong> Recarga tática e emergencial com pente dummy cronometrado</li>
+          </ul>
+          <h3>Ferramentas recomendadas</h3>
+          <p>Laser trainers (SIRT, LaserLyte), snap caps de polímero, aplicativos de shot timer, câmeras em câmera lenta para análise do acionamento e alvos de papel são recursos acessíveis que tornam o dry fire mensurável.</p>
+          <button class="close-btn" onclick="toggleArticle('a3',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+        <!-- ARTIGO 4 -->
+        <article class="article-card" onclick="toggleArticle('a4')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag">Mental &amp; Desempenho</div>
+              <h2 class="card-title">CONTROLE RESPIRATÓRIO E FOCO: A MENTE NO TIRO</h2>
+              <p class="card-excerpt">Respiração diafragmática, shot routine e visualização mental usadas pelos melhores atiradores olímpicos e de tiro prático do mundo.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 5 min &nbsp;<i class="fas fa-tag"></i> Mental</div>
+            </div>
+            <div class="card-num">04</div>
+          </div>
+        </article>
+        <div id="a4" class="article-content">
+          <h3>A janela de disparo</h3>
+          <p>Entre a expiração e a próxima inspiração existe uma janela natural de imobilidade de 2 a 8 segundos. É nessa janela que o tiro de precisão deve ser executado.</p>
+          <ul>
+            <li>Inspire pelo nariz, expire metade do ar pela boca</li>
+            <li>Prenda a respiração na janela natural de imobilidade</li>
+            <li>Finalize o acionamento dentro dessa janela</li>
+            <li>Se passar de 8 segundos, reinicie o ciclo — nunca force</li>
+          </ul>
+          <h3>Shot Routine (rotina pré-disparo)</h3>
+          <p>Atiradores de elite seguem rotina mental repetível: verificação de empunhadura → alinhamento de mira → respiração → foco no front sight → pressão progressiva no gatilho → follow-through após o disparo.</p>
+          <div class="highlight">"O follow-through é tão importante quanto o acionamento. Manter o foco após o disparo garante que nenhum movimento antecipado desvie o projétil."</div>
+          <h3>Visualização mental</h3>
+          <p>Visualize cada tiro, transição e movimento antes de entrar no stage. A neurofisiologia confirma: o cérebro ativa os mesmos circuitos motores na visualização e na execução real.</p>
+          <h3>Controle da pressão competitiva</h3>
+          <p>Respiração 4-7-8 (inspire 4s, segure 7s, expire 8s) antes do estágio baixa a frequência cardíaca e restaura o estado ótimo de desempenho.</p>
+          <button class="close-btn" onclick="toggleArticle('a4',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+        <!-- ARTIGO 5 -->
+        <article class="article-card" onclick="toggleArticle('a5')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag">Manutenção</div>
+              <h2 class="card-title">LIMPEZA E MANUTENÇÃO: COMO CUIDAR DA SUA ARMA</h2>
+              <p class="card-excerpt">Uma arma mal mantida falha na hora errada. Passo a passo completo de limpeza pós-tiro e manutenção preventiva periódica para pistolas e rifles.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 6 min &nbsp;<i class="fas fa-tag"></i> Manutenção</div>
+            </div>
+            <div class="card-num">05</div>
+          </div>
+        </article>
+        <div id="a5" class="article-content">
+          <h3>Por que manter a arma limpa?</h3>
+          <p>Resíduos de pólvora, chumbo e cobre acumulados causam travamentos, falhas de percussão e desgaste prematuro. Limpeza regular é segurança e economia.</p>
+          <h3>Material necessário</h3>
+          <ul>
+            <li>Kit de limpeza com vareta, patches e escova de cerdas</li>
+            <li>Solvente de carbono (CLP, Hoppe's No.9, Ballistol)</li>
+            <li>Óleo lubrificante específico para armas</li>
+            <li>Pano macio, hastes de algodão e mesa de trabalho com boa iluminação</li>
+          </ul>
+          <h3>Passo a passo após cada sessão</h3>
+          <ul>
+            <li><strong>1. Verifique que a arma está descarregada</strong> — sempre o primeiro passo</li>
+            <li><strong>2. Desmonte</strong> os componentes principais (slide, cano, mola, armação)</li>
+            <li><strong>3. Cano:</strong> Patches com solvente → escova de cobre → patch seco → patch com óleo leve</li>
+            <li><strong>4. Slide e câmara:</strong> Remova carvão com escova e solvente, seque bem</li>
+            <li><strong>5. Trilhos:</strong> Limpe e lubrifique levemente — nunca em excesso</li>
+            <li><strong>6. Pente:</strong> Desmonte, limpe e lubrifique as molas</li>
+            <li><strong>7. Remonte</strong> e verifique o funcionamento em seco</li>
+          </ul>
+          <div class="highlight">"Excesso de óleo atrai sujeira e causa falhas. Lubrificação deve ser leve e precisa — apenas nos pontos de fricção."</div>
+          <button class="close-btn" onclick="toggleArticle('a5',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+        <!-- AD INLINE LNTD -->
+        <div class="ad-inline">
+          <i class="fas fa-ad"></i> Espaço para publicidade
+        </div>
+
+        <!-- ARTIGO 6 — LNTD -->
+        <article class="article-card lntd-card" onclick="toggleArticle('a6')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag lntd-tag">&#9733; Tiro Defensivo — LNTD</div>
+              <h2 class="card-title">LNTD: A LIGA NACIONAL DE TIRO DEFENSIVO DO BRASIL</h2>
+              <p class="card-excerpt">Conheça a maior liga de Tiro Defensivo do Brasil — história, regras oficiais 2025, modalidades, como competir, campeonatos e vídeos das provas.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 10 min &nbsp;<i class="fas fa-tag"></i> Tiro Defensivo &nbsp;<i class="fas fa-video"></i> Vídeos incluídos</div>
+            </div>
+            <div class="card-num" style="color:var(--accent);opacity:.5">06</div>
+          </div>
+        </article>
+        <div id="a6" class="article-content">
+
+          <h3>O que é a LNTD?</h3>
+          <p>A <strong>Liga Nacional de Tiro Defensivo (LNTD)</strong> é a principal organização brasileira dedicada a regulamentar e promover o Tiro Defensivo no país. Surgiu a partir da <em>Federação Paranaense de Tiro Defensivo (FPTD)</em>, fundada em 9 de julho de 2016, e em <strong>5 de fevereiro de 2024</strong> obteve registro oficial em cartório, tornando-se formalmente a Liga Nacional de Tiro Defensivo — LNTD.</p>
+          <p>Sua missão é organizar provas de Tiro Defensivo em nível nacional, valorizando atletas, clubes de tiro, árbitros e coordenadores estaduais, com agilidade na aprovação de competições, redução de custos de filiação e padrão de excelência em todo o Brasil.</p>
+
+          <div class="highlight">"A LNTD reúne profissionais e instrutores de diversas forças (PMPR, PF, PRF, PC, Exército, Guardas Municipais e atiradores CAC) para desenvolver uma modalidade realista, dinâmica, divertida e estimulante."</div>
+
+          <h3>O que é o Tiro Defensivo?</h3>
+          <p>O Tiro Defensivo é uma modalidade dinâmica que simula situações reais de defesa pessoal. O atirador percorre pistas com obstáculos, coberturas e alvos inimigos, devendo engajá-los com velocidade, precisão e controle, sempre portando a arma dissimulada sob um <em>Traje de Ocultação</em> — como no porte civil real. É uma fusão das melhores práticas do IDPA (EUA), IPSC, IDSC, TTD e TDT adaptadas à realidade brasileira.</p>
+
+          <h3>Regras Oficiais — Regulamento LNTD 2025</h3>
+          <ul>
+            <li><strong>Pontuação em segundos:</strong> o tempo na pista é medido por um timer eletrônico. Penalidades e acertos/erros nos alvos são computados em segundos adicionados ao tempo total — o menor tempo vence</li>
+            <li><strong>Traje de Ocultação obrigatório:</strong> para divisões de arma curta, a arma e os carregadores não podem ser vistos por quem estiver na frente do atleta, mesmo com os braços estendidos lateralmente</li>
+            <li><strong>Alvos oficiais:</strong> alvos de papelão oficial LNTD (desenvolvido em parceria com a LCL Alvos), alvos metálicos oficiais e pratos de argila</li>
+            <li><strong>Engajamento de alvos:</strong> cada alvo inimigo deve ser atingido 2 ou 3 vezes (definido na explicação da pista) — o mesmo número vale para todos os alvos da mesma pista</li>
+            <li><strong>Dois tipos de recarga:</strong> Recarga de Emergência (câmara e carregador vazios) e Recarga Tática (ainda há munição na câmara)</li>
+            <li><strong>Proibido:</strong> recargas ou solução de panes com apenas uma mão; sacada de coldre com a mão auxiliar; tocar em arma no veículo fora do estande</li>
+            <li><strong>Segurança acima de tudo:</strong> violações de segurança resultam em Desqualificação (DQ) imediata — sem exceções</li>
+          </ul>
+
+          <h3>Estrutura das Pistas</h3>
+          <p>As pistas são construídas com coberturas, postos de tiro (P1, P2...), linhas de partida/falta e suportes de alvos. Podem incluir veículos, mobília, janelas e portas. É proibido usar tonéis de metal ou bombonas de plástico como posto de tiro pelo risco de ricochetes. Alvos ficam na altura aproximada de um ser humano em pé.</p>
+
+          <h3>Competições e Campeonatos</h3>
+          <ul>
+            <li><strong>Campeonato Brasileiro de Tiro Defensivo:</strong> principal evento anual presencial. A edição 2025 está programada para 22 e 23 de novembro em Atibaia – SP</li>
+            <li><strong>Campeonatos Brasileiros Online:</strong> provas mensais realizadas remotamente com árbitros certificados</li>
+            <li><strong>Etapas Estaduais:</strong> competições em diversos estados para qualificação e ranking nacional</li>
+            <li><strong>Provas especiais:</strong> Desafio do Aço Espingarda, Quick Withdrawal, Desafio Shotgun, Steel Challenge LNTD e Desafio Arma Longa</li>
+            <li><strong>Campeonato de Baixa Luminosidade:</strong> prova pioneira realizada na Chapada Diamantina/BA — tiro defensivo em condições de luz reduzida</li>
+          </ul>
+
+          <h3>Como participar</h3>
+          <ul>
+            <li>Filie-se a um clube registrado na LNTD (lista disponível em liganacionaltirodefensivo.com.br)</li>
+            <li>Tenha CR (Certificado de Registro) válido no SIGMA como atirador esportivo</li>
+            <li>Realize o curso de formação ou clínica introdutória em um clube filiado</li>
+            <li>Inscreva-se nas etapas pelo sistema da LNTD — os custos de filiação e inscrição são reduzidos por política da liga</li>
+            <li>Árbitros de outras modalidades (IPSC, IDPA) podem obter habilitação LNTD com custo simbólico</li>
+          </ul>
+
+          <h3>Links Oficiais</h3>
+          <ul>
+            <li><a href="https://www.liganacionaltirodefensivo.com.br" target="_blank" rel="noopener" style="color:var(--accent)">liganacionaltirodefensivo.com.br</a> — site oficial com calendário e resultados</li>
+            <li><a href="https://www.lntd.com.br" target="_blank" rel="noopener" style="color:var(--accent)">lntd.com.br</a> — regulamentos e clubes</li>
+            <li><a href="https://www.instagram.com/liganacionaltirodefensivo/" target="_blank" rel="noopener" style="color:var(--accent)">@liganacionaltirodefensivo</a> — Instagram oficial</li>
+          </ul>
+
+          <h3>Vídeos — Canal Oficial LNTD no YouTube</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Assista às competições, stages e conteúdos publicados diretamente pelo canal oficial da Liga Nacional de Tiro Defensivo.</p>
+
+          <!-- CARD CANAL LNTD -->
+          <div class="canal-card">
+            <div class="canal-yt-icon"><i class="fab fa-youtube"></i></div>
+            <div class="canal-info">
+              <div class="canal-name">Liga Nacional Tiro Defensivo</div>
+              <div class="canal-handle">@LigaNacionalTiroDefensivo</div>
+              <div class="canal-desc">Canal oficial da LNTD — competições, stages, campeonatos brasileiros e conteúdo sobre tiro defensivo.</div>
+            </div>
+            <a href="https://www.youtube.com/@LigaNacionalTiroDefensivo" target="_blank" rel="noopener" class="canal-btn">
+              <i class="fab fa-youtube"></i> Visitar canal
+            </a>
+          </div>
+
+          <!-- NOVO VÍDEO LNTD -->
+          <div class="video-block">
+            <div class="video-label"><i class="fas fa-video"></i> Vídeo em Destaque — LNTD</div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/cl3Q5AK6qlI"
+                title="LNTD — Vídeo em Destaque"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+          <!-- EMBED PLAYLIST CANAL LNTD -->
+          <div class="video-block">
+            <div class="video-label"><i class="fas fa-video"></i> Playlist Oficial — LNTD</div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLrtFBDBdMkrjL-YIDCAfnRFkn86aChbTw"
+                title="LNTD — Playlist de vídeos"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p style="font-size:11px;color:var(--muted);margin-top:.5rem">
+              Assista à playlist completa diretamente aqui no blog.
+            </p>
+          </div>
+
+          <h3>Canal Parceiro — Tiro Esportivo Brasileiro</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Acompanhe também o nosso canal no YouTube com conteúdo sobre tiro esportivo, treinos e competições.</p>
+
+          <!-- CARD CANAL PAULO -->
+          <div class="canal-card canal-card-gold">
+            <div class="canal-yt-icon" style="color:var(--accent)"><i class="fab fa-youtube"></i></div>
+            <div class="canal-info">
+              <div class="canal-name" style="color:var(--accent)">Braddock Paulo</div>
+              <div class="canal-handle">@Braddockpaulo</div>
+              <div class="canal-desc">Canal do autor do blog — tiro esportivo, treinos, equipamentos e muito mais. Inscreva-se e ative o sino!</div>
+            </div>
+            <a href="https://www.youtube.com/@Braddockpaulo" target="_blank" rel="noopener" class="canal-btn canal-btn-gold">
+              <i class="fab fa-youtube"></i> Inscrever-se
+            </a>
+          </div>
+
+          <div class="video-block">
+            <div class="video-label" style="color:var(--accent)"><i class="fas fa-video"></i> Braddock Paulo — Canal do Blog</div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=UU-YIDCAfnRFkn86aChbTw" 
+                title="Braddock Paulo — Canal YouTube"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p style="font-size:11px;color:var(--muted);margin-top:.5rem">
+              <a href="https://www.youtube.com/@Braddockpaulo" target="_blank" rel="noopener" style="color:var(--accent)">
+                <i class="fab fa-youtube" style="color:#ff0000"></i> youtube.com/@Braddockpaulo
+              </a>
+            </p>
+          </div>
+
+          <button class="close-btn" onclick="toggleArticle('a6',event)"><i class="fas fa-times"></i> Fechar artigo</button>
+        </div>
+
+        <!-- AD INLINE SEGURANÇA -->
+        <div class="ad-inline">
+          <i class="fas fa-ad"></i> Espaço para publicidade
+        </div>
+
+        <!-- ARTIGO 7 — SEGURANÇA EM ESTANDE -->
+        <article class="article-card" style="border-color:var(--red)" onclick="toggleArticle('a7')">
+          <div class="card-inner">
+            <div>
+              <div class="card-tag" style="color:var(--red)">&#9888; Segurança — Obrigatório</div>
+              <h2 class="card-title">SEGURANÇA NO ESTANDE DE TIRO: NORMAS, CONDUTA E PROCEDIMENTOS</h2>
+              <p class="card-excerpt">As regras de segurança em estande de tiro não são sugestões — são normas que existem para proteger sua vida e a de todos ao redor. Conheça as 4 regras de ouro, os comandos do estande, EPIs obrigatórios e os comportamentos que levam à expulsão imediata.</p>
+              <div class="card-meta"><i class="fas fa-clock"></i> 10 min &nbsp;<i class="fas fa-tag"></i> Segurança &nbsp;<i class="fas fa-video"></i> Vídeos</div>
+            </div>
+            <div class="card-num" style="color:var(--red);opacity:.35">07</div>
+          </div>
+        </article>
+        <div id="a7" class="article-content">
+
+          <!-- ALERTA VERMELHO -->
+          <div style="background:rgba(184,50,50,0.12);border:1px solid var(--red);padding:1rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start">
+            <i class="fas fa-exclamation-triangle" style="color:var(--red);font-size:1.3rem;flex-shrink:0;margin-top:.1rem"></i>
+            <div style="font-size:13px;color:var(--text);line-height:1.6">
+              <strong style="color:var(--red)">ATENÇÃO:</strong> O descumprimento das normas de segurança em estande pode resultar em acidente grave, expulsão permanente do clube e resposta criminal. Nenhuma meta de treinamento justifica arriscar vidas.
+            </div>
+          </div>
+
+          <h3>As 4 Regras de Ouro</h3>
+          <div class="safety-grid">
+            <div class="safety-card">
+              <div class="safety-num">1</div>
+              <div class="safety-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="safety-title">Trate toda arma como carregada</div>
+              <div class="safety-desc">Nunca presuma que uma arma está descarregada. Sempre verifique visualmente e fisicamente.</div>
+            </div>
+            <div class="safety-card">
+              <div class="safety-num">2</div>
+              <div class="safety-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="safety-title">Mantenha o dedo fora do gatilho</div>
+              <div class="safety-desc">Dedo no gatilho apenas no momento do disparo. Fora do gatilho o tempo todo.</div>
+            </div>
+            <div class="safety-card">
+              <div class="safety-num">3</div>
+              <div class="safety-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="safety-title">Aponte apenas para alvos seguros</div>
+              <div class="safety-desc">Nunca aponte para pessoas, animais ou objetos que não sejam alvos. Sempre para downrange.</div>
+            </div>
+            <div class="safety-card">
+              <div class="safety-num">4</div>
+              <div class="safety-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="safety-title">Tenha certeza do alvo e do que está além</div>
+              <div class="safety-desc">Conheça exatamente o que vai atingir e o que pode estar atrás do alvo.</div>
+            </div>
+          </div>
+
+          <h3>EPIs Obrigatórios</h3>
+          <div class="epi-grid">
+            <div class="epi-item">
+              <div class="epi-icon"><i class="fas fa-ear"></i></div>
+              <div class="epi-name">Protetor Auricular</div>
+              <div class="epi-desc">Abafador ativo ou passivo. Obrigatório em todo estande. Nunca treine sem.</div>
+            </div>
+            <div class="epi-item">
+              <div class="epi-icon"><i class="fas fa-glasses"></i></div>
+              <div class="epi-name">Óculos de Proteção</div>
+              <div class="epi-desc">Balísticos homologados. Proteção contra estilhaços, cápsulas e ricochetes.</div>
+            </div>
+            <div class="epi-item">
+              <div class="epi-icon"><i class="fas fa-vest"></i></div>
+              <div class="epi-name">Vestuário Apropriado</div>
+              <div class="epi-desc">Calça comprida, sapato fechado. Sem chinelo, bermuda ou camiseta regata.</div>
+            </div>
+            <div class="epi-item">
+              <div class="epi-icon"><i class="fas fa-hand-fist"></i></div>
+              <div class="epi-name">Coldre Seguro</div>
+              <div class="epi-desc">Coldre de retenção apropriado à arma e à modalidade. Nunca na cintura sem coldre.</div>
+            </div>
+          </div>
+
+          <h3>Comandos do Estande — Obediência Total</h3>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <div class="cmd-word">PRONTO</div>
+              <div class="cmd-desc">Você está pronto para começar? Responda "Pronto" ou levante a mão. Qualquer hesitação = espere.</div>
+            </div>
+            <div class="cmd-item">
+              <div class="cmd-word">FOGO</div>
+              <div class="cmd-desc">Você pode começar a atirar. Comece o stage.</div>
+            </div>
+            <div class="cmd-item">
+              <div class="cmd-word">PARAR</div>
+              <div class="cmd-desc">Cesse imediatamente. Retire o dedo do gatilho, abaixe a arma e aguarde instruções.</div>
+            </div>
+            <div class="cmd-item">
+              <div class="cmd-word">DESCARREGAR</div>
+              <div class="cmd-desc">Remova toda munição da arma e do ambiente. Verifique a câmara vazia.</div>
+            </div>
+            <div class="cmd-item">
+              <div class="cmd-word">VERIFICAR</div>
+              <div class="cmd-desc">O árbitro verificará se a arma está realmente descarregada. Coopere totalmente.</div>
+            </div>
+          </div>
+
+          <h3>Comportamentos que Resultam em Expulsão Imediata</h3>
+          <ul>
+            <li>Apontar a arma para qualquer pessoa</li>
+            <li>Dedo no gatilho fora do momento de disparo</li>
+            <li>Disparar fora da área de fogo autorizada</li>
+            <li>Disparar sem comando ou autorização</li>
+            <li>Estar sob influência de álcool ou drogas</li>
+            <li>Recusar obedecer comandos de segurança</li>
+            <li>Comportamento agressivo ou ameaçador</li>
+            <li>Negligência grosseira com armas ou munição</li>
+          </ul>
+
+          <div class="highlight">"Segurança não é negociável. Um acidente em estande pode destruir vidas. Respeite as regras, respeite seus colegas, respeite a arma."</div>
+
+          <button class="close-btn" onclick="toggleArticle('a7',event)"><i class="fas fa-times"></i> Fechar</button>
+        </div>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="sidebar-block">
+          <div class="section-label">Modalidades</div>
+          <div class="modality-grid">
+            <div class="mod-card">
+              <div class="mod-icon"><i class="fas fa-bullseye"></i></div>
+              <div class="mod-name">IPSC</div>
+              <div class="mod-desc">Velocidade, poder e precisão</div>
+            </div>
+            <div class="mod-card">
+              <div class="mod-icon"><i class="fas fa-shield-alt"></i></div>
+              <div class="mod-name">IDPA</div>
+              <div class="mod-desc">Tiro defensivo tático</div>
+            </div>
+            <div class="mod-card">
+              <div class="mod-icon"><i class="fas fa-medal"></i></div>
+              <div class="mod-name">Olímpico</div>
+              <div class="mod-desc">Precisão e técnica</div>
+            </div>
+            <div class="mod-card">
+              <div class="mod-icon"><i class="fas fa-star"></i></div>
+              <div class="mod-name">LNTD</div>
+              <div class="mod-desc">Tiro defensivo Brasil</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label">Dicas Rápidas</div>
+          <div class="tip-item">
+            <div class="tip-num">1</div>
+            <div class="tip-text"><strong>Treino a seco</strong> é a base. Faça diariamente.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-num">2</div>
+            <div class="tip-text"><strong>Empunhadura</strong> sólida resolve 80% dos problemas.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-num">3</div>
+            <div class="tip-text"><strong>Segurança</strong> sempre. Sem exceções.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-num">4</div>
+            <div class="tip-text"><strong>Mentalidade</strong> vence técnica pura.</div>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label">Canais YouTube</div>
+          <a href="https://www.youtube.com/@LigaNacionalTiroDefensivo" target="_blank" rel="noopener" class="sidebar-canal">
+            <div class="sc-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <div class="sc-name">LNTD Oficial</div>
+              <div class="sc-handle">@LigaNacionalTiroDefensivo</div>
+            </div>
+            <div class="sc-ext"><i class="fas fa-external-link-alt"></i></div>
+          </a>
+          <a href="https://www.youtube.com/@Braddockpaulo" target="_blank" rel="noopener" class="sidebar-canal">
+            <div class="sc-icon" style="color:var(--accent)"><i class="fab fa-youtube"></i></div>
+            <div>
+              <div class="sc-name">Braddock Paulo</div>
+              <div class="sc-handle">@Braddockpaulo</div>
+            </div>
+            <div class="sc-ext"><i class="fas fa-external-link-alt"></i></div>
+          </a>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label">Newsletter</div>
+          <div style="display:flex;gap:.5rem;margin-top:.75rem">
+            <input type="email" id="nlEmail" placeholder="seu@email.com" style="flex:1;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.5rem;font-size:12px;font-family:'DM Sans',sans-serif;outline:none">
+            <button id="nlBtn" class="btn-primary" style="padding:.5rem .75rem;font-size:9px"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+
+        <div class="ad-sidebar">
+          <i class="fas fa-ad"></i> Espaço para publicidade
+          <small>300x250</small>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER SECTION -->
+  <div class="container">
+    <div class="newsletter">
+      <h2>Receba as Novidades do Blog</h2>
+      <p>Dicas, artigos e atualizações sobre tiro esportivo direto na sua caixa de entrada.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="seu@email.com" required>
+        <button type="submit">Inscrever-se</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== CONTACT PAGE ==================== -->
+<div id="page-contato" class="page">
+  <div class="static-page">
+    <h1>Entre em Contato</h1>
+    <p class="page-date">Tiro Esportivo Brasileiro</p>
+    <p>Tem dúvidas, sugestões ou quer compartilhar sua experiência? Envie uma mensagem para a gente. Responderemos em breve.</p>
+    <form class="contact-form" onsubmit="enviarContato();return false">
+      <div class="form-group">
+        <label for="cNome">Nome</label>
+        <input type="text" id="cNome" placeholder="Seu nome completo" required>
+      </div>
+      <div class="form-group">
+        <label for="cEmail">E-mail</label>
+        <input type="email" id="cEmail" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="cMsg">Mensagem</label>
+        <textarea id="cMsg" placeholder="Sua mensagem aqui..." required></textarea>
+      </div>
+      <button type="submit" id="cBtn" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
+      <div id="formSuccess" class="form-success"><i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Obrigado.</div>
+    </form>
+  </div>
+</div>
+
+<!-- ==================== PRIVACY PAGE ==================== -->
+<div id="page-privacidade" class="page">
+  <div class="static-page">
+    <h1>Política de Privacidade</h1>
+    <p class="page-date">Última atualização: 2025</p>
+    <h2>Coleta de Dados</h2>
+    <p>Este site coleta informações básicas através de formulários de contato e analytics para melhorar a experiência do usuário.</p>
+    <h2>Uso de Dados</h2>
+    <p>Os dados coletados são usados exclusivamente para responder suas mensagens e melhorar o conteúdo do blog.</p>
+    <h2>Segurança</h2>
+    <p>Seus dados são protegidos e não serão compartilhados com terceiros sem seu consentimento.</p>
+    <h2>Contato</h2>
+    <p>Para dúvidas sobre privacidade, <a href="#" onclick="showPage('contato')" style="color:var(--accent)">clique aqui para nos contatar</a>.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">TIRO ESPORTIVO <span>BRASILEIRO</span></div>
+      <div class="footer-tagline">Blog Oficial</div>
+      <div class="footer-desc">Conteúdo sério, técnico e atualizado sobre tiro esportivo, modalidades, legislação e treino para atiradores brasileiros de todos os níveis.</div>
+    </div>
+    <div>
+      <h4>Recursos</h4>
+      <ul>
+        <li onclick="showPage('home')">Blog</li>
+        <li onclick="showTab('modalidades')">Modalidades</li>
+        <li onclick="showTab('treino')">Treino</li>
+        <li onclick="showPage('contato')">Contato</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Links Oficiais</h4>
+      <ul>
+        <li><a href="https://www.cbte.org.br" target="_blank" rel="noopener">CBTE — Confederação</a></li>
+        <li><a href="https://www.cbtp.org.br" target="_blank" rel="noopener">CBTP / IPSC Brasil</a></li>
+        <li><a href="https://www.liganacionaltirodefensivo.com.br" target="_blank" rel="noopener">LNTD Oficial</a></li>
+        <li><a href="https://www.ipsc.org" target="_blank" rel="noopener">IPSC Internacional</a></li>
+      </ul>
+      <h4 style="margin-top:1.25rem">Canais YouTube</h4>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/@LigaNacionalTiroDefensivo" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem">
+            <i class="fab fa-youtube" style="color:#ff0000;font-size:12px"></i> LNTD Oficial
+          </a>
+        </li>
+        <li style="margin-top:.25rem">
+          <a href="https://www.youtube.com/@Braddockpaulo" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem">
+            <i class="fab fa-youtube" style="color:var(--accent);font-size:12px"></i> Braddock Paulo
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tiro Esportivo Brasileiro — Todos os direitos reservados</span>
+    <nav class="footer-nav">
+      <a onclick="showPage('privacidade')">Privacidade</a>
+      <a onclick="showPage('contato')">Contato</a>
+    </nav>
+    <span>Pratique sempre com segurança e dentro da lei</span>
+  </div>
+</footer>
+
+<script>
+// PAGE NAVIGATION
+function showPage(id) {
+	  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+	  document.getElementById('page-' + id).classList.add('active');
+	  document.querySelectorAll('nav a').forEach(function(a){ a.classList.remove('active'); });
+	  window.scrollTo({top:0, behavior:'smooth'});
+	  // close mobile menu
+	  document.getElementById('navMenu').classList.remove('open');
+	}
+
+	function showTab(tabId) {
+	  if (!document.getElementById('page-home').classList.contains('active')) {
+	    showPage('home');
+	  }
+	  document.querySelectorAll('.tab-content').forEach(function(tab) {
+	    tab.classList.remove('active');
+	  });
+	  document.getElementById('tab-' + tabId).classList.add('active');
+	  document.querySelectorAll('nav a').forEach(function(a) {
+	    a.classList.remove('active');
+	  });
+	  document.getElementById('nav-' + tabId).classList.add('active');
+	  document.getElementById('artigos-container').scrollIntoView({behavior:'smooth'});
+	}
+
+	// Organizar artigos nas abas ao carregar
+	window.addEventListener('DOMContentLoaded', function() {
+	  const artigosGerais = ['a1', 'a4', 'a5', 'a7'];
+	  const modalidades = ['a6'];
+	  const treino = ['a2', 'a3'];
+	  
+	  artigosGerais.forEach(id => {
+	    const art = document.querySelector(`article[onclick*="${id}"]`);
+	    const content = document.getElementById(id);
+	    if(art && content) {
+	      document.getElementById('tab-artigos').appendChild(art);
+	      document.getElementById('tab-artigos').appendChild(content);
+	    }
+	  });
+	  
+	  modalidades.forEach(id => {
+	    const art = document.querySelector(`article[onclick*="${id}"]`);
+	    const content = document.getElementById(id);
+	    if(art && content) {
+	      document.getElementById('tab-modalidades').appendChild(art);
+	      document.getElementById('tab-modalidades').appendChild(content);
+	    }
+	  });
+	  
+	  treino.forEach(id => {
+	    const art = document.querySelector(`article[onclick*="${id}"]`);
+	    const content = document.getElementById(id);
+	    if(art && content) {
+	      document.getElementById('tab-treino').appendChild(art);
+	      document.getElementById('tab-treino').appendChild(content);
+	    }
+	  });
+	});
+
+// HAMBURGER
+document.getElementById('hamburger').addEventListener('click', function(){
+  document.getElementById('navMenu').classList.toggle('open');
+});
+
+// TOGGLE ARTICLES
+function toggleArticle(id, e) {
+  if (e) e.stopPropagation();
+  var el = document.getElementById(id);
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.article-content').forEach(function(a){ a.classList.remove('open'); });
+  if (!isOpen) {
+    el.classList.add('open');
+    setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 60);
+  }
+}
+
+// NEWSLETTER
+document.getElementById('nlBtn').addEventListener('click', function(){
+  var input = document.getElementById('nlEmail');
+  if (input.value && input.value.includes('@')) {
+    input.value = '';
+    input.placeholder = 'Obrigado! Em breve você receberá novidades.';
+    this.textContent = '✓';
+    this.style.background = '#2a6b3a';
+    this.style.color = '#fff';
+  } else {
+    input.style.borderColor = 'var(--red)';
+    input.placeholder = 'Digite um e-mail válido';
+    setTimeout(function(){ input.style.borderColor=''; input.placeholder='seu@email.com'; }, 2500);
+  }
+});
+
+// CONTACT FORM
+function enviarContato() {
+  var nome = document.getElementById('cNome').value.trim();
+  var email = document.getElementById('cEmail').value.trim();
+  var msg = document.getElementById('cMsg').value.trim();
+  if (!nome || !email || !msg) {
+    alert('Por favor, preencha nome, e-mail e mensagem.');
+    return;
+  }
+  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('cBtn').style.display = 'none';
+  document.getElementById('cNome').value = '';
+  document.getElementById('cEmail').value = '';
+  document.getElementById('cMsg').value = '';
+}
+</script>
+</body>
 </html>
