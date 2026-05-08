@@ -214,6 +214,10 @@ nav a:hover,nav a.active{color:var(--accent)}
 .comment-cancel-btn:hover{color:var(--accent);border-color:var(--accent)}
 .no-comments{text-align:center;padding:2rem;color:var(--muted);font-size:13px}
 .no-comments i{font-size:2rem;color:var(--border);margin-bottom:1rem;display:block}
+.upvote-btn{background:transparent;border:1px solid var(--border);color:var(--muted);cursor:pointer;padding:.3rem .6rem;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:.3rem;border-radius:3px}
+.upvote-btn:hover{border-color:var(--accent);color:var(--accent)}
+.upvote-btn.upvoted{background:var(--accent);color:#111;border-color:var(--accent)}
+.upvote-count{font-size:10px;font-weight:500}
 
 @media(max-width:768px){
   .safety-grid,.epi-grid{grid-template-columns:1fr}
@@ -1349,7 +1353,8 @@ class CommentsManager {
       text: text,
       date: new Date().toLocaleDateString('pt-BR'),
       time: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'}),
-      replies: []
+      replies: [],
+      upvotes: 0
     };
     this.comments[articleId].push(comment);
     this.saveComments();
@@ -1368,13 +1373,28 @@ class CommentsManager {
         email: email,
         text: text,
         date: new Date().toLocaleDateString('pt-BR'),
-        time: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})
+        time: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'}),
+        upvotes: 0
       };
       comment.replies.push(reply);
       this.saveComments();
       return reply;
     }
     return null;
+  }
+  toggleUpvote(articleId, commentId, replyId = null) {
+    if (!this.comments[articleId]) return false;
+    const comment = this.comments[articleId].find(c => c.id === commentId);
+    if (!comment) return false;
+    let target = comment;
+    if (replyId) {
+      target = comment.replies.find(r => r.id === replyId);
+      if (!target) return false;
+    }
+    if (!target.upvotes) target.upvotes = 0;
+    target.upvotes++;
+    this.saveComments();
+    return true;
   }
 }
 const commentsManager = new CommentsManager();
@@ -1389,8 +1409,8 @@ function renderComments(articleId) {
     return;
   }
   container.innerHTML = comments.map(comment => {
-    const repliesHtml = comment.replies && comment.replies.length > 0 ? '<div style="margin-top:1rem;margin-left:1rem;border-left:2px solid var(--accent);padding-left:1rem">' + comment.replies.map(reply => '<div style="background:var(--bg3);border:1px solid var(--border);padding:0.75rem;margin-bottom:0.5rem;border-left:2px solid var(--red)"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem"><div style="font-family:Bebas Neue,sans-serif;font-size:0.95rem;color:var(--accent);letter-spacing:0.5px">' + escapeHtml(reply.author) + '</div><div style="font-size:10px;color:var(--muted);letter-spacing:1px">' + reply.date + ' as ' + reply.time + '</div></div><div style="font-size:12px;color:var(--muted);line-height:1.5">' + escapeHtml(reply.text) + '</div></div>').join('') + '</div>' : '';
-    return '<div class="comment-item"><div class="comment-header"><div class="comment-author">' + escapeHtml(comment.author) + '</div><div class="comment-date">' + comment.date + ' as ' + comment.time + '</div></div><div class="comment-text">' + escapeHtml(comment.text) + '</div><div class="comment-actions"><span class="comment-action" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')"><i class="fas fa-reply"></i> Responder</span></div><div id="reply-form-' + articleId + '-' + comment.id + '" style="display:none;margin-top:1rem"><div class="comment-reply"><div class="comment-reply-form"><input type="text" placeholder="Seu nome" id="reply-author-' + articleId + '-' + comment.id + '" maxlength="50"><input type="email" placeholder="seu@email.com" id="reply-email-' + articleId + '-' + comment.id + '" maxlength="100"><textarea placeholder="Sua resposta..." id="reply-text-' + articleId + '-' + comment.id + '" maxlength="500"></textarea><div class="comment-reply-actions"><button class="comment-reply-btn" onclick="submitReply(' + "'" + articleId + "'" + ', ' + comment.id + ')">Enviar</button><button class="comment-cancel-btn" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')">Cancelar</button></div></div></div></div>' + repliesHtml + '</div>';
+    const repliesHtml = comment.replies && comment.replies.length > 0 ? '<div style="margin-top:1rem;margin-left:1rem;border-left:2px solid var(--accent);padding-left:1rem">' + comment.replies.map(reply => '<div style="background:var(--bg3);border:1px solid var(--border);padding:0.75rem;margin-bottom:0.5rem;border-left:2px solid var(--red)"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem"><div style="font-family:Bebas Neue,sans-serif;font-size:0.95rem;color:var(--accent);letter-spacing:0.5px">' + escapeHtml(reply.author) + '</div><div style="font-size:10px;color:var(--muted);letter-spacing:1px">' + reply.date + ' as ' + reply.time + '</div></div><div style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:0.5rem">' + escapeHtml(reply.text) + '</div><button class="upvote-btn" onclick="upvoteComment(' + "'" + articleId + "'" + ', ' + comment.id + ', ' + reply.id + ')"><i class="fas fa-thumbs-up"></i> <span class="upvote-count">' + (reply.upvotes || 0) + '</span></button></div>').join('') + '</div>' : '';
+    return '<div class="comment-item"><div class="comment-header"><div class="comment-author">' + escapeHtml(comment.author) + '</div><div class="comment-date">' + comment.date + ' as ' + comment.time + '</div></div><div class="comment-text">' + escapeHtml(comment.text) + '</div><div class="comment-actions"><button class="upvote-btn" onclick="upvoteComment(' + "'" + articleId + "'" + ', ' + comment.id + ')"><i class="fas fa-thumbs-up"></i> <span class="upvote-count">' + (comment.upvotes || 0) + '</span></button><span class="comment-action" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')"><i class="fas fa-reply"></i> Responder</span></div><div id="reply-form-' + articleId + '-' + comment.id + '" style="display:none;margin-top:1rem"><div class="comment-reply"><div class="comment-reply-form"><input type="text" placeholder="Seu nome" id="reply-author-' + articleId + '-' + comment.id + '" maxlength="50"><input type="email" placeholder="seu@email.com" id="reply-email-' + articleId + '-' + comment.id + '" maxlength="100"><textarea placeholder="Sua resposta..." id="reply-text-' + articleId + '-' + comment.id + '" maxlength="500"></textarea><div class="comment-reply-actions"><button class="comment-reply-btn" onclick="submitReply(' + "'" + articleId + "'" + ', ' + comment.id + ')">Enviar</button><button class="comment-cancel-btn" onclick="toggleReplyForm(' + "'" + articleId + "'" + ', ' + comment.id + ')">Cancelar</button></div></div></div></div>' + repliesHtml + '</div>';
   }).join('');
 }
 function toggleReplyForm(articleId, commentId) {
@@ -1439,6 +1459,10 @@ function submitComment(articleId) {
     btn.textContent = 'Enviar Comentario';
     renderComments(articleId);
   }, 500);
+}
+function upvoteComment(articleId, commentId, replyId = null) {
+  commentsManager.toggleUpvote(articleId, commentId, replyId);
+  renderComments(articleId);
 }
 function escapeHtml(text) {
   const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
