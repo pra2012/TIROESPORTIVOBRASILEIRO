@@ -949,8 +949,94 @@ footer{background:linear-gradient(90deg,var(--bg) 0%,var(--bg2) 100%);border-top
 <div class="tab-content" id="tab-treinos">
   <h2 style="margin-bottom:2rem;font-size:1.8rem">Modelos de Treino</h2>
   
+  <!-- BARRA DE PESQUISA E FILTROS -->
+  <div style="background:linear-gradient(135deg, #0f1428 0%, #151d35 100%);border:2px solid #d4af37;border-radius:12px;padding:20px;margin-bottom:30px;box-shadow:0 4px 12px rgba(212,175,55,0.2)">
+    <div style="display:flex;flex-direction:column;gap:15px">
+      <!-- BARRA DE PESQUISA -->
+      <div style="position:relative">
+        <input type="text" id="searchTreino" placeholder="🔍 Pesquisar tutoriais, drills, técnicas..." style="width:100%;padding:12px 15px 12px 40px;background:#001a4d;color:#ffffff;border:2px solid #d4af37;border-radius:8px;font-size:14px;transition:all 0.3s;font-family:'DM Sans',sans-serif" onkeyup="filterTreinos()" onfocus="this.style.borderColor='#e8c547';this.style.boxShadow='0 0 10px rgba(212,175,55,0.4)'" onblur="this.style.borderColor='#d4af37';this.style.boxShadow='none'">
+        <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#d4af37;pointer-events:none"></i>
+      </div>
+      
+      <!-- FILTROS -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="filterByCategory('todos')" class="filter-btn" style="background:#d4af37;color:#001a4d;border:2px solid #d4af37;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:13px;transition:all 0.3s;font-family:'DM Sans',sans-serif">📚 Todos</button>
+        <button onclick="filterByCategory('tutorial')" class="filter-btn" style="background:transparent;color:#d4af37;border:2px solid #d4af37;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:13px;transition:all 0.3s;font-family:'DM Sans',sans-serif">🎯 Tutoriais</button>
+        <button onclick="filterByCategory('treino')" class="filter-btn" style="background:transparent;color:#d4af37;border:2px solid #d4af37;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:13px;transition:all 0.3s;font-family:'DM Sans',sans-serif">💪 Treino</button>
+        <button onclick="filterByCategory('drill')" class="filter-btn" style="background:transparent;color:#d4af37;border:2px solid #d4af37;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:13px;transition:all 0.3s;font-family:'DM Sans',sans-serif">⚡ Drills</button>
+      </div>
+      
+      <!-- RESULTADO DA BUSCA -->
+      <div id="searchResult" style="color:#d4af37;font-size:12px;font-style:italic;display:none"></div>
+    </div>
+  </div>
+  
+  <!-- SCRIPT DE FILTRO E BUSCA -->
+  <script>
+    let currentFilter = 'todos';
+    
+    function filterByCategory(category) {
+      currentFilter = category;
+      
+      // Atualizar estilo dos botões
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.style.background = 'transparent';
+        btn.style.color = '#d4af37';
+      });
+      event.target.style.background = '#d4af37';
+      event.target.style.color = '#001a4d';
+      
+      filterTreinos();
+    }
+    
+    function filterTreinos() {
+      const searchTerm = document.getElementById('searchTreino').value.toLowerCase();
+      const tutorialBoxes = document.querySelectorAll('[data-treino-item]');
+      let visibleCount = 0;
+      
+      tutorialBoxes.forEach(box => {
+        const category = box.getAttribute('data-category');
+        const text = box.textContent.toLowerCase();
+        
+        const matchesSearch = text.includes(searchTerm);
+        const matchesCategory = currentFilter === 'todos' || category === currentFilter;
+        
+        if (matchesSearch && matchesCategory) {
+          box.style.display = 'block';
+          box.style.animation = 'fadeIn 0.3s ease-in';
+          visibleCount++;
+        } else {
+          box.style.display = 'none';
+        }
+      });
+      
+      // Mostrar resultado da busca
+      const resultDiv = document.getElementById('searchResult');
+      if (searchTerm || currentFilter !== 'todos') {
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = `Encontrados ${visibleCount} resultado(s)`;
+      } else {
+        resultDiv.style.display = 'none';
+      }
+    }
+    
+    // Adicionar animação
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(212,175,55,0.3);
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+  
   <!-- TUTORIAL COMPLETO DE EMPUNHADURA -->
-  <div style="background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #d4af37;">
+  <div data-treino-item data-category="tutorial" style="background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #d4af37;">
     <h3 style="font-size: 1.5em; margin-bottom: 15px; font-family: 'Oswald', sans-serif;">🎯 TUTORIAL COMPLETO: Empunhadura Correta</h3>
     <p style="margin-bottom: 15px; font-size: 1.05em;">Aprenda as técnicas Isósceles e Weaver com vídeos educacionais, diagramas técnicos e instruções passo a passo.</p>
     <p style="margin-bottom: 20px;">Conteúdo: 7 módulos, 3 vídeos, 8 imagens técnicas e checklist de segurança.</p>
@@ -1148,7 +1234,7 @@ function toggleLegendas() {
   </div>
   
   <!-- TUTORIAL COMPLETO DE RECARGAS TÁTICAS -->
-  <div style="background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #d4af37;">
+  <div data-treino-item data-category="tutorial" style="background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #d4af37;">
     <h3 style="font-size: 1.5em; margin-bottom: 15px; font-family: 'Oswald', sans-serif;">🎯 TUTORIAL COMPLETO: Recargas Táticas (IPSC/LNTD)</h3>
     <p style="margin-bottom: 15px; font-size: 1.05em;">Domine as técnicas de recarga tática para competições de tiro defensivo e prático. Aprenda com vídeos educacionais, diagramas técnicos e exercícios práticos.</p>
     <p style="margin-bottom: 20px;">Conteúdo: 6 módulos completos, técnicas de recarga de emergência e tática, drills de prática e checklist de segurança.</p>
@@ -1249,7 +1335,7 @@ function toggleLegendas() {
   </div>
   
   <div class="articles-grid">
-    <div class="article-card" onclick="toggleArticle('trn1')">
+    <div class="article-card" data-treino-item data-category="treino" onclick="toggleArticle('trn1')">
       <div class="article-tag">Treino</div>
       <h3 class="article-title">Treino a Seco — Fundamentos</h3>
       <p class="article-excerpt">Aprenda técnicas de treino a seco para melhorar sua técnica sem munição.</p>
